@@ -8,6 +8,8 @@ import Contact from "./Contact";
 import Help from "./Help";
 import Home from "./Home";
 
+import { OptionsTheme } from "../styles/global";
+
 const { Navigator, Screen } = createBottomTabNavigator();
 
 export default function App() {
@@ -15,17 +17,30 @@ export default function App() {
         ...DefaultTheme,
         colors: {
             ...DefaultTheme.colors,
-            notification: "#D22688",
+            notification: OptionsTheme.colors.Primary,
         },
     };
 
     return (
         <NavigationContainer theme={MyTheme}>
-            <Navigator>
+            <Navigator
+                tabBarOptions={{
+                    activeTintColor: OptionsTheme.colors.Primary,
+                    labelStyle: {
+                        fontFamily: OptionsTheme.fonts.Others,
+                        fontSize: 10,
+                        marginBottom: 5,
+                    },
+                }}
+            >
                 <Screen
                     options={{
                         tabBarIcon: () => (
-                            <Feather name="home" size={20} color="#D22688" />
+                            <Feather
+                                name="home"
+                                size={20}
+                                color={OptionsTheme.colors.Primary}
+                            />
                         ),
                     }}
                     name="Início"
@@ -34,9 +49,16 @@ export default function App() {
                 <Screen
                     options={{
                         tabBarIcon: () => (
-                            <Feather name="file" size={20} color="#D22688" />
+                            <Feather
+                                name="file"
+                                size={20}
+                                color={OptionsTheme.colors.Primary}
+                            />
                         ),
                         tabBarBadge: 0,
+                        tabBarBadgeStyle: {
+                            marginBottom: 20,
+                        },
                     }}
                     name="Contratos"
                     component={Contact}
@@ -47,7 +69,7 @@ export default function App() {
                             <Feather
                                 name="help-circle"
                                 size={20}
-                                color="#D22688"
+                                color={OptionsTheme.colors.Primary}
                             />
                         ),
                     }}
@@ -57,7 +79,11 @@ export default function App() {
                 <Screen
                     options={{
                         tabBarIcon: () => (
-                            <Feather name="user" size={20} color="#D22688" />
+                            <Feather
+                                name="user"
+                                size={20}
+                                color={OptionsTheme.colors.Primary}
+                            />
                         ),
                     }}
                     name="Conta"
