@@ -1,0 +1,39 @@
+{
+    "env": {
+        "es2021": true
+    },
+    "extends": ["plugin:react/recommended", "prettier", "airbnb"],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly",
+        "__DEV__": "readonly"
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": ["react", "prettier"],
+    "rules": {
+        "react/jsx-filename-extension": [
+            "warn",
+            {
+                "extensions": [".jsx", ".js"]
+            }
+        ],
+        "import/prefer-default-export": "off",
+        "react/state-in-constructor": "off",
+        "react/static-property-placement": "off",
+        "react/jsx-props-no-spreading": "off",
+        "indent": [2, 4],
+        "react/jsx-indent": 0,
+        "react/jsx-indent-props": [2, 4],
+        "quotes": [2, "double", "avoid-escape"],
+        "react/prop-types": "off",
+        "no-param-reassign": "off",
+        "camelcase": 0
+    }
+}
