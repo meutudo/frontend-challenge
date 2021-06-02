@@ -1,9 +1,11 @@
 import styled from "styled-components/native";
 
+import { OptionsTheme } from "../../styles/global";
+
 const Container = {
     width: 163,
     height: 162,
-    backgroundColor: "#ffffff",
+    backgroundColor: OptionsTheme.colors.White,
     borderRadius: 20,
     paddingTop: 18,
     paddingLeft: 17,
