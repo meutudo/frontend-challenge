@@ -25,7 +25,7 @@ import {
     TitleHome,
 } from "./styles";
 
-const Home = () => {
+const Home = ({ navigation }) => {
     const [openHeader, setOpenheader] = useState(false);
 
     return (
@@ -73,6 +73,7 @@ const Home = () => {
                     imageIcon={IconNewLoan}
                     title="Novo Empréstimo"
                     message="Até R$ 3.058,10"
+                    onPress={() => navigation.navigate("Values")}
                 />
                 <CardOpportunities
                     imageIcon={IconPortability}

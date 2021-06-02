@@ -43,7 +43,7 @@ export default function App() {
                             />
                         ),
                     }}
-                    name="Início"
+                    name="Home"
                     component={Home}
                 />
                 <Screen
@@ -59,8 +59,9 @@ export default function App() {
                         tabBarBadgeStyle: {
                             marginBottom: 20,
                         },
+                        title: "Contatos",
                     }}
-                    name="Contratos"
+                    name="Contact"
                     component={Contact}
                 />
                 <Screen
@@ -72,8 +73,9 @@ export default function App() {
                                 color={OptionsTheme.colors.Primary}
                             />
                         ),
+                        title: "Dúvidas",
                     }}
-                    name="Dúvidas"
+                    name="Help"
                     component={Help}
                 />
                 <Screen
@@ -85,8 +87,9 @@ export default function App() {
                                 color={OptionsTheme.colors.Primary}
                             />
                         ),
+                        title: "Conta",
                     }}
-                    name="Conta"
+                    name="Account"
                     component={Account}
                 />
             </Navigator>

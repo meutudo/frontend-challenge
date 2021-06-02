@@ -1,12 +1,28 @@
+import { OptionsTheme } from "../styles/global";
+
 const StyledStackBar = {
     headerStyle: {
-        backgroundColor: "#000000",
+        backgroundColor: OptionsTheme.colors.Black,
         borderBottomEndRadius: 40,
         height: 110,
     },
     headerTitleStyle: {
-        color: "#ffffff",
+        fontFamily: OptionsTheme.fonts.Others,
+        color: OptionsTheme.colors.White,
+        fontSize: 17,
+        alignSelf: "center",
     },
 };
 
-export { StyledStackBar };
+const StyledStackBarButton = {
+    ...StyledStackBar,
+    headerTitleStyle: {
+        fontFamily: OptionsTheme.fonts.Others,
+        color: OptionsTheme.colors.White,
+        fontSize: 17,
+        alignSelf: "center",
+        marginLeft: -50,
+    },
+};
+
+export { StyledStackBar, StyledStackBarButton };

@@ -6,21 +6,36 @@ import Period from "../../pages/Home/Period";
 import Simulation from "../../pages/Home/Simulation";
 import Values from "../../pages/Home/Values";
 
-const Stack = createStackNavigator();
+import ButtonsHeaderStack from "../../components/ButtonsHeaderStack";
 
-function App() {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen
-                options={{ headerShown: false }}
-                name="Home"
-                component={Home}
-            />
-            <Stack.Screen name="Period" component={Period} />
-            <Stack.Screen name="Simulation" component={Simulation} />
-            <Stack.Screen name="Values" component={Values} />
-        </Stack.Navigator>
-    );
-}
+import { StyledStackBarButton } from "../styles";
 
-export default App;
+const { Navigator, Screen } = createStackNavigator();
+
+const HomeRoute = () => (
+    <Navigator
+        screenOptions={{
+            ...StyledStackBarButton,
+            headerLeft: () => <ButtonsHeaderStack />,
+        }}
+    >
+        <Screen options={{ headerShown: false }} name="Home" component={Home} />
+        <Screen
+            name="Period"
+            component={Period}
+            options={{ title: "Período" }}
+        />
+        <Screen
+            name="Simulation"
+            component={Simulation}
+            options={{ title: "Opções" }}
+        />
+        <Screen
+            name="Values"
+            component={Values}
+            options={{ title: "Valores" }}
+        />
+    </Navigator>
+);
+
+export default HomeRoute;
