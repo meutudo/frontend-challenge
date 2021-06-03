@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 import { OptionsTheme } from "../../styles/global";
 
-const Container = {
+const Container = (selected) => ({
     width: 165,
     height: 58,
     backgroundColor: OptionsTheme.colors.White,
@@ -10,6 +10,7 @@ const Container = {
     margin: 5,
     justifyContent: "center",
     alignItems: "center",
+    opacity: selected ? 0.5 : 1,
 
     elevation: 5,
     // Border Shadow IOS
@@ -17,7 +18,7 @@ const Container = {
     shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 5,
     shadowRadius: 5,
-};
+});
 
 const Title = styled.Text`
     font-family: ${(props) => props.theme.fonts.Primary};

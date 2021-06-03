@@ -1,4 +1,5 @@
 import React from "react";
+import { Provider } from "react-redux";
 import { useFonts } from "expo-font";
 import {
     Montserrat_700Bold,
@@ -7,8 +8,10 @@ import {
     Montserrat_500Medium,
 } from "@expo-google-fonts/montserrat";
 
-import Theme from "./src/styles/global";
+import store from "./src/store";
 import Routes from "./src/routes";
+
+import Theme from "./src/styles/global";
 
 const App = () => {
     const [fontsLoaded] = useFonts({
@@ -23,9 +26,11 @@ const App = () => {
     }
 
     return (
-        <Theme>
-            <Routes />
-        </Theme>
+        <Provider store={store}>
+            <Theme>
+                <Routes />
+            </Theme>
+        </Provider>
     );
 };
 

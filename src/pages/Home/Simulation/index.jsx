@@ -1,82 +1,64 @@
-import React from "react";
-import { View, TouchableOpacity } from "react-native";
-import { Feather, EvilIcons } from "@expo/vector-icons";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
-import Divider from "../../../components/Divider";
-import { OptionsTheme } from "../../../styles/global";
+import api from "../../../services";
+
+import CardBank from "../../../components/CardBank";
 
 import Logo from "../../../assets/tudo-logo-1.png";
 
-import {
-    Container,
-    TitleSimulation,
-    ContainerBank,
-    CardBank,
-    CardBankInternal,
-    ContainerInformations,
-    ImageLogo,
-    ContainerInstallments,
-    TitleInstallments,
-    TitleValue,
-    TitleMessage,
-    ContainerTax,
-    TitleTax,
-    ContainerPrevision,
-    ContainerPaymentPrevidion,
-    TitlePaymentDate,
-    ContainerContract,
-    ButtonContract,
-} from "./styles";
+import { Container, TitleSimulation, ContainerBank } from "./styles";
 
-const Simulator = () => (
-    <Container>
-        <TitleSimulation>Escolha um banco.</TitleSimulation>
-        <ContainerBank>
-            <View style={CardBank}>
-                <CardBankInternal>
-                    <ContainerInformations>
-                        <ImageLogo source={Logo} />
-                        <ContainerInstallments>
-                            <TitleInstallments>
-                                60 parcelas de
-                            </TitleInstallments>
-                            <TitleValue>R$ 372,65</TitleValue>
-                            <TitleMessage>Total de R$ 5.030,00</TitleMessage>
-                        </ContainerInstallments>
-                        <Divider type="vertical" />
-                        <ContainerTax>
-                            <TitleMessage>com taxa de</TitleMessage>
-                            <TitleTax>1,30% a.m.</TitleTax>
-                        </ContainerTax>
-                    </ContainerInformations>
-                    <ContainerPrevision>
-                        <Divider type="horizontal" />
-                        <ContainerPaymentPrevidion>
-                            <TitleMessage>Previsão de pagamento</TitleMessage>
-                            <TouchableOpacity>
-                                <EvilIcons
-                                    name="question"
-                                    size={16}
-                                    color={OptionsTheme.colors.Primary}
-                                />
-                            </TouchableOpacity>
-                        </ContainerPaymentPrevidion>
-                        <TitlePaymentDate>
-                            19 de maio a 01 de junho de 2020
-                        </TitlePaymentDate>
-                        <ContainerContract>
-                            <TouchableOpacity>
-                                <ButtonContract>
-                                    Contratar
-                                    <Feather name="chevron-right" size={14} />
-                                </ButtonContract>
-                            </TouchableOpacity>
-                        </ContainerContract>
-                    </ContainerPrevision>
-                </CardBankInternal>
-            </View>
-        </ContainerBank>
-    </Container>
-);
+const Simulator = () => {
+    const [simulation, setSimulation] = useState();
+
+    const getSuggestedValues = () => {
+        api.get("/simulation").then(({ data }) => {
+            setSimulation(data);
+        });
+    };
+
+    useEffect(() => {
+        getSuggestedValues();
+    }, []);
+
+    const installmentsValue = useSelector(
+        (state) => state.InstallmentsValueReducer.installmentsValue
+    );
+    const loanValue = useSelector((state) => state.LoanValueReducer.loanValue);
+
+    if (!simulation) {
+        return null;
+    }
+
+    return (
+        <Container>
+            <TitleSimulation>Escolha um banco.</TitleSimulation>
+            <ContainerBank>
+                <CardBank
+                    logo={Logo}
+                    installments={installmentsValue}
+                    totalInstallmentsValue={loanValue / installmentsValue}
+                    loanValue={loanValue}
+                    tax="1,30"
+                    taxTime="a.m."
+                    datePaymentLoan="19 de maio a 01 de junho de 2020"
+                />
+                <CardBank
+                    logo={Logo}
+                    installments={simulation.numberOfInstallments}
+                    totalInstallmentsValue={simulation.installmentsValue}
+                    loanValue={
+                        simulation.installmentsValue *
+                        simulation.numberOfInstallments
+                    }
+                    tax={simulation.nominalRate}
+                    taxTime="a.m."
+                    datePaymentLoan="19 de maio a 01 de junho de 2020"
+                />
+            </ContainerBank>
+        </Container>
+    );
+};
 
 export default Simulator;

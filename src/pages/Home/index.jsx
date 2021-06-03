@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Image } from "react-native";
 import { Feather } from "@expo/vector-icons";
+
+import api from "../../services";
+import { ConvertMoneyBRL } from "../../controller/convertMoney";
 
 import CardOpportunities from "../../components/CardOpportunities";
 
@@ -26,7 +29,22 @@ import {
 } from "./styles";
 
 const Home = ({ navigation }) => {
-    const [openHeader, setOpenheader] = useState(false);
+    const [openHeader, setOpenHeader] = useState(false);
+    const [totalMaxValue, setTotalMaxValue] = useState(0);
+    const [loanMaxValue, setLoanMaxValue] = useState(0);
+    const [portabilityMaxValue, setPortabilityMaxValue] = useState(0);
+
+    const getMargins = () => {
+        api.get("/margins").then(({ data }) => {
+            setTotalMaxValue(ConvertMoneyBRL(data.totalMaxValue));
+            setLoanMaxValue(ConvertMoneyBRL(data.loanMaxValue));
+            setPortabilityMaxValue(ConvertMoneyBRL(data.portabilityMaxValue));
+        });
+    };
+
+    useEffect(() => {
+        getMargins();
+    }, []);
 
     return (
         <Container>
@@ -48,7 +66,7 @@ const Home = ({ navigation }) => {
                             <MessageHeader>
                                 Seu crédito disponível é de
                             </MessageHeader>
-                            <ValueHeader>R$ 5.048,10</ValueHeader>
+                            <ValueHeader>R$ {totalMaxValue}</ValueHeader>
                         </>
                     ) : null}
                 </HeaderTextContainer>
@@ -56,7 +74,7 @@ const Home = ({ navigation }) => {
                     <ButtonOpenHeader
                         open={openHeader}
                         onPress={() => {
-                            setOpenheader(!openHeader);
+                            setOpenHeader(!openHeader);
                         }}
                     >
                         <Feather
@@ -72,13 +90,13 @@ const Home = ({ navigation }) => {
                 <CardOpportunities
                     imageIcon={IconNewLoan}
                     title="Novo Empréstimo"
-                    message="Até R$ 3.058,10"
+                    message={`Até R$ ${loanMaxValue}`}
                     onPress={() => navigation.navigate("Values")}
                 />
                 <CardOpportunities
                     imageIcon={IconPortability}
                     title="Portabilidade"
-                    message="Até R$ 2.000,00"
+                    message={`Até R$ ${portabilityMaxValue}`}
                 />
                 <CardOpportunities
                     disabled
