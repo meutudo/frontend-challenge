@@ -35,11 +35,15 @@ export default function App() {
             >
                 <Screen
                     options={{
-                        tabBarIcon: () => (
+                        tabBarIcon: ({ focused }) => (
                             <Feather
                                 name="home"
                                 size={20}
-                                color={OptionsTheme.colors.Primary}
+                                color={
+                                    focused
+                                        ? OptionsTheme.colors.Primary
+                                        : OptionsTheme.colors.Black
+                                }
                             />
                         ),
                     }}
@@ -48,11 +52,15 @@ export default function App() {
                 />
                 <Screen
                     options={{
-                        tabBarIcon: () => (
+                        tabBarIcon: ({ focused }) => (
                             <Feather
                                 name="file"
                                 size={20}
-                                color={OptionsTheme.colors.Primary}
+                                color={
+                                    focused
+                                        ? OptionsTheme.colors.Primary
+                                        : OptionsTheme.colors.Black
+                                }
                             />
                         ),
                         tabBarBadge: 0,
@@ -66,11 +74,15 @@ export default function App() {
                 />
                 <Screen
                     options={{
-                        tabBarIcon: () => (
+                        tabBarIcon: ({ focused }) => (
                             <Feather
                                 name="help-circle"
                                 size={20}
-                                color={OptionsTheme.colors.Primary}
+                                color={
+                                    focused
+                                        ? OptionsTheme.colors.Primary
+                                        : OptionsTheme.colors.Black
+                                }
                             />
                         ),
                         title: "Dúvidas",
@@ -80,11 +92,15 @@ export default function App() {
                 />
                 <Screen
                     options={{
-                        tabBarIcon: () => (
+                        tabBarIcon: ({ focused }) => (
                             <Feather
                                 name="user"
                                 size={20}
-                                color={OptionsTheme.colors.Primary}
+                                color={
+                                    focused
+                                        ? OptionsTheme.colors.Primary
+                                        : OptionsTheme.colors.Black
+                                }
                             />
                         ),
                         title: "Conta",
