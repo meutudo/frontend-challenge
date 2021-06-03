@@ -10,7 +10,11 @@ const { Navigator, Screen } = createStackNavigator();
 function ContactRoute() {
     return (
         <Navigator screenOptions={{ ...StyledStackBar }}>
-            <Screen name="Contatos" component={Contact} />
+            <Screen
+                name="Contact"
+                options={{ title: "Contatos" }}
+                component={Contact}
+            />
         </Navigator>
     );
 }

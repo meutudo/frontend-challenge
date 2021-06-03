@@ -14,10 +14,12 @@ import IconPortability from "../../assets/portability-2.png";
 import IconRefinancing from "../../assets/refinancing-2.png";
 import IconCreditCard from "../../assets/creditCard-2.png";
 
+import { OptionsTheme } from "../../styles/global";
 import {
     Container,
     HeaderContainer,
     ContainerLogo,
+    ImageLogo,
     HeaderTextContainer,
     TitleHeader,
     MessageHeader,
@@ -51,11 +53,12 @@ const Home = ({ navigation }) => {
             <StatusBar style="dark" />
             <HeaderContainer open={openHeader}>
                 <ContainerLogo>
-                    <Image
-                        source={Logo}
-                        style={{ width: 31, height: 32, marginRight: "45%" }}
+                    <ImageLogo source={Logo} />
+                    <Feather
+                        name="bell"
+                        size={20}
+                        color={OptionsTheme.colors.White}
                     />
-                    <Feather name="bell" size={20} color="#ffffff" />
                 </ContainerLogo>
                 <HeaderTextContainer>
                     <TitleHeader open={openHeader}>
@@ -80,7 +83,7 @@ const Home = ({ navigation }) => {
                         <Feather
                             name={openHeader ? "chevron-up" : "chevron-down"}
                             size={35}
-                            color="#ffffff"
+                            color={OptionsTheme.colors.White}
                         />
                     </ButtonOpenHeader>
                 </ConatinerButtonHeader>

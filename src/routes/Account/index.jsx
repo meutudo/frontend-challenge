@@ -10,7 +10,11 @@ const { Navigator, Screen } = createStackNavigator();
 function AccountRoute() {
     return (
         <Navigator screenOptions={{ ...StyledStackBar }}>
-            <Screen name="Conta" component={Account} />
+            <Screen
+                name="Account"
+                options={{ title: "Conta" }}
+                component={Account}
+            />
         </Navigator>
     );
 }

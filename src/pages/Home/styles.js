@@ -16,6 +16,12 @@ const ContainerLogo = styled.View`
     margin-top: 40px;
 `;
 
+const ImageLogo = styled.Image`
+    width: 31px;
+    height: 32px;
+    margin-right: 45%;
+`;
+
 const HeaderTextContainer = styled.View`
     align-items: center;
     justify-content: center;
@@ -82,6 +88,7 @@ export {
     Container,
     HeaderContainer,
     ContainerLogo,
+    ImageLogo,
     HeaderTextContainer,
     TitleHeader,
     MessageHeader,

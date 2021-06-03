@@ -10,7 +10,11 @@ const { Navigator, Screen } = createStackNavigator();
 function HelpRoute() {
     return (
         <Navigator screenOptions={{ ...StyledStackBar }}>
-            <Screen name="Dúvidas" component={Help} />
+            <Screen
+                name="Help"
+                options={{ title: "Dúvidas" }}
+                component={Help}
+            />
         </Navigator>
     );
 }
