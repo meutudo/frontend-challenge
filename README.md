@@ -24,7 +24,7 @@ Imagine que você é responsável por iniciar o desenvolvimento do nosso PWA e M
 - [ ] Deve ter gerenciamento de estado
 - [ ] Deve ter um linter configurado
 - [ ] Fique a vontade para usar Classes, Hooks, etc.
-- [ ] Plus: desenvolver também a aplicação em React Native - Não precisa ser necessariamente completa, mas é plus porque analisaremos o reuso do código em comum.
+- [ ] Plus: desenvolver também a aplicação em React Native **(não use EXPO)** - Não precisa ser necessariamente completa, mas é plus porque analisaremos o reuso do código em comum.
 - [ ] Plus: testes
 
 Para criar as telas vocês deve seguir o layout proposto aqui: https://xd.adobe.com/view/1f691c23-6efa-4989-b405-9bbcfd1e62ab-4a3a/
