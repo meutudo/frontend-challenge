@@ -1,14 +1,21 @@
 import { FunctionComponent } from 'react'
 import useHeight from '@/utils/useHeight'
 import Router from '@/router'
+import { BottomBar } from './components/BottomBar'
 
 const App: FunctionComponent = () => {
   // used to work around 100vh problems
   const height = useHeight()
 
   return (
-    <main style={{ minHeight: height }}>
-      <Router />
+    <main
+      style={{ height: height, background: '#ccc' }}
+      className="mainContainer"
+    >
+      <div className="growContainer">
+        <Router />
+      </div>
+      <BottomBar />
     </main>
   )
 }

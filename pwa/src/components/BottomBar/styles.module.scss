@@ -1,0 +1,13 @@
+.root {
+  padding: 12px 0 30px;
+  flex-basis: auto;
+  flex-shrink: 0;
+  background-color: #fff;
+  display: flex;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}

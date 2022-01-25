@@ -1,0 +1,9 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.growContainer {
+  flex-grow: 1;
+  width: 100%;
+}
