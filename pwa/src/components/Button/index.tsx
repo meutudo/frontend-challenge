@@ -1,16 +1,17 @@
-// Is just an example
 import { FunctionComponent, ButtonHTMLAttributes } from 'react'
-import { SerializedStyles } from '@emotion/react'
+import styles from './styles.module.scss'
 
-export interface ButtonProps extends ButtonHTMLAttributes<null> {
-  css?: SerializedStyles
-}
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export const Button: FunctionComponent<ButtonProps> = ({
   children,
   ...rest
 }) => {
-  return <button {...rest}>{children}</button>
+  return (
+    <button className={styles.button} {...rest}>
+      {children}
+    </button>
+  )
 }
 
 export default Button

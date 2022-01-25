@@ -4,7 +4,8 @@
   "icons": [
     {
       "src": "tudo-logo.png",
-      "sizes": "any"
+      "sizes": "72x72",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
