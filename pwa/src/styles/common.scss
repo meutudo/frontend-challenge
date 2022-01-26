@@ -8,10 +8,12 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  height: 0;
 }
 
 .pageContainer {
   flex-grow: 1;
   width: 100%;
-  padding: 30px 16px;
+  padding: 70px 16px 16px;
+  margin-top: -40px;
 }

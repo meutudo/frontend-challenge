@@ -1,8 +1,17 @@
+@import './css-reset.css';
+
 body {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  color: #000;
 
   & * {
     box-sizing: inherit;
   }
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  color: inherit;
 }

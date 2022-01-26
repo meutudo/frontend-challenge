@@ -1,0 +1,10 @@
+.cardsContainer {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  > * {
+    flex: 1;
+    max-width: calc(50% - 8px);
+  }
+}

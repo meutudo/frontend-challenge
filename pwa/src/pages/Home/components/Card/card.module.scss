@@ -1,0 +1,49 @@
+@import '@/styles/variables';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  min-height: 162px;
+}
+
+.disabled {
+  user-select: none;
+  pointer-events: none;
+  > * {
+    opacity: 0.1;
+  }
+}
+
+.topContent {
+  display: flex;
+  align-items: flex-end;
+  flex: 1;
+  padding-bottom: 4px;
+}
+
+.bottomContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.titleBox {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  min-height: 36px;
+}
+
+.hasSubtitle {
+  .titleBox {
+    align-items: flex-end;
+  }
+}
+
+.subtitle {
+  flex: 0.8;
+  margin-top: 6px;
+  color: $primary;
+}

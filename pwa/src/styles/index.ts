@@ -1,4 +1,5 @@
 import 'normalize.css'
 import './custom-resets.scss'
+import './utils.scss'
 import './typography.scss'
 import './common.scss'
