@@ -1,0 +1,57 @@
+@import '@/styles/variables.scss';
+
+.root {
+  background: #000;
+  padding: 12px 16px 28px;
+  border-radius: 0 0 40px 0;
+  position: relative;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+}
+
+.content {
+  width: 100%;
+  padding: 0 8%;
+  text-align: center;
+  color: #fff;
+}
+
+.salutation {
+  margin: 0;
+  margin-bottom: 18px;
+  margin-top: -6px;
+}
+
+.balance {
+  color: $primary;
+  margin-top: 2px;
+}
+
+.showMore {
+  background: $primary;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transition: transform 0.2s ease-in-out;
+  transform: translate3d(-50%, 50%, 0);
+
+  &:active {
+    transform: translate3d(-50%, 50%, 0) rotate(180deg);
+  }
+}

@@ -1,9 +1,11 @@
 .root {
+  z-index: 1;
   padding: 12px 0 30px;
   flex-basis: auto;
   flex-shrink: 0;
   background-color: #fff;
   display: flex;
+  box-shadow: 0 -3px 6px rgba(184, 184, 184, 0.14);
 }
 
 .container {

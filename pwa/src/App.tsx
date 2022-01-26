@@ -9,7 +9,7 @@ const App: FunctionComponent = () => {
 
   return (
     <main
-      style={{ height: height, background: '#ccc' }}
+      style={{ height: height, background: '#ECECEC' }}
       className="mainContainer"
     >
       <div className="growContainer">

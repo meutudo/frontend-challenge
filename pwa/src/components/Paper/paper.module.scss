@@ -1,0 +1,13 @@
+.root {
+  background: #fff;
+}
+
+.radius {
+  &-sm {
+    border-radius: 10px;
+  }
+
+  &-md {
+    border-radius: 20px;
+  }
+}

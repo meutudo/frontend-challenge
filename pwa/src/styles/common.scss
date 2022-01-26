@@ -6,4 +6,12 @@
 .growContainer {
   flex-grow: 1;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pageContainer {
+  flex-grow: 1;
+  width: 100%;
+  padding: 30px 16px;
 }
