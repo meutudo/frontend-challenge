@@ -4,8 +4,13 @@ import Logo from '@shared/assets/tudo-logo.png'
 import { AiOutlineBell } from 'react-icons/ai'
 import { IoChevronDownOutline } from 'react-icons/io5'
 import clsx from 'clsx'
+import { numberToCurrency } from '@/utils/numberToCurrency'
 
-export const HomeHeader: FunctionComponent = () => {
+export interface HomeHeaderProps {
+  balance?: number
+}
+
+export const HomeHeader: FunctionComponent<HomeHeaderProps> = ({ balance }) => {
   return (
     <header className={styles.root}>
       <div className={styles.top}>
@@ -17,7 +22,9 @@ export const HomeHeader: FunctionComponent = () => {
           Olá, José Carlos
         </h3>
         <div className="tp-body_2">Seu crédito disponível é de</div>
-        <div className={clsx('tp-head_1', styles.balance)}>R$ 5.048,10</div>
+        <div className={clsx('tp-head_1', styles.balance)}>
+          {numberToCurrency(balance)}
+        </div>
       </div>
       <button className={styles.showMore}>
         <IoChevronDownOutline size={24} color="#fff" />

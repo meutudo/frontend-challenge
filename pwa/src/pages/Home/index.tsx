@@ -1,40 +1,66 @@
-import { Fragment, FunctionComponent } from 'react'
+import { Fragment, FunctionComponent, useEffect, useState } from 'react'
 import { HomeHeader } from './components/HomeHeader'
 import { Card } from './components/Card'
 import { ContentTitle } from '@/components/ContentTitle'
-import IconNewLoan from '@shared/assets/newLoan-2.png'
-import IconPortability from '@shared/assets/portability-2.png'
-import IconRefinancing from '@shared/assets/refinancing-2.png'
-import IconCreditCard from '@shared/assets/creditCard-2.png'
+
 import styles from './home.module.scss'
+import { MarginService } from '@/services/Margin'
+import { IGetCurrentMarginsData } from '@/services/Margin/types'
+import { GrowSpinner } from '@/components/GrowSpinner'
+import { numberToCurrency } from '@/utils/numberToCurrency'
+import { cardsData } from './data'
 
 const Home: FunctionComponent = () => {
+  const [currentMargins, setCurrentMargins] = useState<IGetCurrentMarginsData>(
+    null,
+  )
+  const [loadingMargins, setLoadingMargins] = useState(false)
+
+  useEffect(() => {
+    async function fetchMargins() {
+      try {
+        setLoadingMargins(true)
+        const margins = await MarginService.getCurrentMargins()
+        setCurrentMargins(margins)
+      } catch (err) {
+        console.log('error on fetch margins: ', err)
+      } finally {
+        setLoadingMargins(false)
+      }
+    }
+
+    fetchMargins()
+  }, [])
+
+  if (loadingMargins) {
+    return <GrowSpinner />
+  }
+
+  if (!loadingMargins && !currentMargins) {
+    return <h2>Não encontramos seus dados</h2>
+  }
+
   return (
     <Fragment>
-      <HomeHeader />
+      <HomeHeader balance={currentMargins.totalMaxValue} />
       <div className="pageContainer" style={{ overflow: 'auto' }}>
         <ContentTitle style={{ marginBottom: 6 }}>Oportunidades</ContentTitle>
+
         <div className={styles.cardsContainer}>
-          <Card
-            iconSrc={IconNewLoan}
-            title={
-              <Fragment>
-                Novo <br /> Empréstimo
-              </Fragment>
-            }
-            subtitle="Até R$ 3.058,10"
-          />
-          <Card
-            iconSrc={IconPortability}
-            title="Portabilidade"
-            subtitle="Até R$ 2.000,00"
-          />
-          <Card iconSrc={IconRefinancing} title="Refinanciamento" disabled />
-          <Card
-            iconSrc={IconCreditCard}
-            title="Cartão de crédito consignado"
-            disabled
-          />
+          {cardsData.map(({ marginKey, ...rest }, index) => {
+            if (!Object.keys(currentMargins).includes(marginKey)) return null
+
+            const margin = currentMargins[marginKey]
+
+            return (
+              <Card
+                key={index}
+                {...rest}
+                subtitle={margin ? numberToCurrency(margin) : undefined}
+                disabled={!margin}
+              />
+            )
+          })}
         </div>
       </div>
     </Fragment>
