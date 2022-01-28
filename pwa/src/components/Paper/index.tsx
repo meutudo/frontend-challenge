@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { FunctionComponent, HTMLAttributes } from 'react'
 import styles from './paper.module.scss'
 
-interface PaperProps extends HTMLAttributes<HTMLDivElement> {
+export interface PaperProps extends HTMLAttributes<HTMLDivElement> {
   radius?: 'sm' | 'md'
   className?: string
 }
