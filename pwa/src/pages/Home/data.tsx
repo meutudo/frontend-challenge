@@ -4,8 +4,16 @@ import IconNewLoan from '@shared/assets/newLoan-2.png'
 import IconPortability from '@shared/assets/portability-2.png'
 import IconRefinancing from '@shared/assets/refinancing-2.png'
 import IconCreditCard from '@shared/assets/creditCard-2.png'
+import { History } from 'history'
 
-export const cardsData: ICardData[] = [
+interface IGetCardsDataParams {
+  history: History
+}
+interface IGetCardsData {
+  (params: IGetCardsDataParams): ICardData[]
+}
+
+export const getCardsData: IGetCardsData = ({ history }) => [
   {
     title: (
       <Fragment>
@@ -14,6 +22,7 @@ export const cardsData: ICardData[] = [
     ),
     iconSrc: IconNewLoan,
     marginKey: 'loanMaxValue',
+    onClick: () => history.push('/newloan'),
   },
   {
     title: 'Portabilidade',

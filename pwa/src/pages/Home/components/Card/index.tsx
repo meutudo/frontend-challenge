@@ -8,6 +8,7 @@ export interface CardProps {
   title: ReactNode
   subtitle?: string
   disabled?: boolean
+  onClick?: () => void
 }
 
 export const Card: FunctionComponent<CardProps> = ({
@@ -15,6 +16,7 @@ export const Card: FunctionComponent<CardProps> = ({
   title,
   subtitle,
   disabled = false,
+  onClick,
 }) => {
   return (
     <Paper
@@ -23,6 +25,7 @@ export const Card: FunctionComponent<CardProps> = ({
         [styles.disabled]: disabled,
         [styles.hasSubtitle]: !!subtitle,
       })}
+      onClick={onClick}
     >
       <div className={styles.topContent}>
         <img src={iconSrc} width={44} />

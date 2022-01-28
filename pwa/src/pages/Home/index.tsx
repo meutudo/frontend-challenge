@@ -1,4 +1,10 @@
-import { Fragment, FunctionComponent, useEffect, useState } from 'react'
+import {
+  Fragment,
+  FunctionComponent,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import { HomeHeader } from './components/HomeHeader'
 import { Card } from './components/Card'
 import { ContentTitle } from '@/components/ContentTitle'
@@ -8,13 +14,17 @@ import { MarginService } from '@/services/Margin'
 import { IGetCurrentMarginsData } from '@/services/Margin/types'
 import { GrowSpinner } from '@/components/GrowSpinner'
 import { numberToCurrency } from '@/utils/numberToCurrency'
-import { cardsData } from './data'
+import { getCardsData } from './data'
+import { useHistory } from 'react-router-dom'
 
-const Home: FunctionComponent = () => {
+export const Home: FunctionComponent = () => {
   const [currentMargins, setCurrentMargins] = useState<IGetCurrentMarginsData>(
     null,
   )
   const [loadingMargins, setLoadingMargins] = useState(false)
+  const history = useHistory()
+
+  const cardsData = useMemo(() => getCardsData({ history }), [history])
 
   useEffect(() => {
     async function fetchMargins() {
@@ -43,7 +53,7 @@ const Home: FunctionComponent = () => {
   return (
     <Fragment>
       <HomeHeader balance={currentMargins.totalMaxValue} />
-      <div className="pageContainer" style={{ overflow: 'auto' }}>
+      <div className="pageContainer">
         <ContentTitle style={{ marginBottom: 6 }}>Oportunidades</ContentTitle>
 
         <div className={styles.cardsContainer}>
