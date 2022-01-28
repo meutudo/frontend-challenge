@@ -7,13 +7,15 @@ import {
   useContext,
   useState,
 } from 'react'
+import { useHistory } from 'react-router-dom'
 
 export interface IAppBarContext {
   isAppBarOpen: boolean
   setIsAppBarOpen: StateSetter<IAppBarContext['isAppBarOpen']>
   title: ReactNode
   setTitle: StateSetter<IAppBarContext['title']>
-  resetAppBar: () => void
+  resetAppBar(): void
+  defaultLeftAction(): void
 }
 
 const DEFAULT_STATE = {
@@ -26,6 +28,10 @@ const AppBarContext = createContext<IAppBarContext>(null)
 export const AppBarProvider: FunctionComponent = ({ children }) => {
   const [isAppBarOpen, setIsAppBarOpen] = useState(DEFAULT_STATE.isAppBarOpen)
   const [title, setTitle] = useState(DEFAULT_STATE.title)
+  const history = useHistory()
+  const defaultLeftAction = useCallback(() => {
+    history.goBack()
+  }, [history])
 
   const resetAppBar = useCallback(() => {
     setIsAppBarOpen(DEFAULT_STATE.isAppBarOpen)
@@ -40,6 +46,7 @@ export const AppBarProvider: FunctionComponent = ({ children }) => {
         title,
         setTitle,
         resetAppBar,
+        defaultLeftAction,
       }}
     >
       {children}
