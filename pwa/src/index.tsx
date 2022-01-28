@@ -6,12 +6,15 @@ import { BrowserRouter } from 'react-router-dom'
 import './styles'
 
 import { AppProvider } from './contexts/App'
+import { AppBarProvider } from './contexts/AppBar'
 
 const Index: FunctionComponent = () => (
   <StrictMode>
     <BrowserRouter>
       <AppProvider>
-        <App />
+        <AppBarProvider>
+          <App />
+        </AppBarProvider>
       </AppProvider>
     </BrowserRouter>
   </StrictMode>
