@@ -1,9 +1,17 @@
+@import '@/styles/variables.module';
+
 .root {
   display: flex;
   flex-direction: column;
   align-items: center;
   background: none;
   border: none;
+}
+
+.active {
+  .label {
+    color: $primaryColor;
+  }
 }
 
 .label {
