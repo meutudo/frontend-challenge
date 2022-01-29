@@ -1,3 +1,5 @@
 export { Home } from './Home'
 export { NewLoan } from './NewLoan'
+export { Contracts } from './Contracts'
+export { Help } from './Help'
 export { NotFound } from './NotFound'
