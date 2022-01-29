@@ -1,46 +1,24 @@
-import {
-  Fragment,
-  FunctionComponent,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react'
+import { Fragment, FunctionComponent, useMemo } from 'react'
 import { HomeHeader } from './components/HomeHeader'
 import { Card } from './components/Card'
 import { ContentTitle } from '@/components/ContentTitle'
 
 import styles from './home.module.scss'
 import { MarginService } from '@/services/Margin'
-import { IGetCurrentMarginsData } from '@/services/Margin/types'
 import { GrowSpinner } from '@/components/GrowSpinner'
 import { numberToCurrency } from '@/utils/numberToCurrency'
 import { getCardsData } from './data'
 import { useHistory } from 'react-router-dom'
+import { useQuery } from 'react-query'
 
 export const Home: FunctionComponent = () => {
-  const [currentMargins, setCurrentMargins] = useState<IGetCurrentMarginsData>(
-    null,
-  )
-  const [loadingMargins, setLoadingMargins] = useState(false)
   const history = useHistory()
+  const {
+    data: currentMargins,
+    isLoading: loadingMargins,
+  } = useQuery('currentMargins', () => MarginService.getCurrentMargins())
 
   const cardsData = useMemo(() => getCardsData({ history }), [history])
-
-  useEffect(() => {
-    async function fetchMargins() {
-      try {
-        setLoadingMargins(true)
-        const margins = await MarginService.getCurrentMargins()
-        setCurrentMargins(margins)
-      } catch (err) {
-        console.log('error on fetch margins: ', err)
-      } finally {
-        setLoadingMargins(false)
-      }
-    }
-
-    fetchMargins()
-  }, [])
 
   if (loadingMargins) {
     return <GrowSpinner />

@@ -5,17 +5,21 @@ import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
 import './styles'
 
+import { queryClient } from '@/services/Query'
+import { QueryClientProvider } from 'react-query'
 import { AppProvider } from './contexts/App'
 import { AppBarProvider } from './contexts/AppBar'
 
 const Index: FunctionComponent = () => (
   <StrictMode>
     <BrowserRouter>
-      <AppProvider>
-        <AppBarProvider>
-          <App />
-        </AppBarProvider>
-      </AppProvider>
+      <QueryClientProvider client={queryClient}>
+        <AppProvider>
+          <AppBarProvider>
+            <App />
+          </AppBarProvider>
+        </AppProvider>
+      </QueryClientProvider>
     </BrowserRouter>
   </StrictMode>
 )
