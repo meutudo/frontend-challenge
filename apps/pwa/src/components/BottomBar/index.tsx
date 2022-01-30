@@ -17,10 +17,10 @@ export const BottomBar: FunctionComponent = () => {
 
   const matchNewLoan = useRouteMatch('/newloan')
 
-  const matchHomeItem = useMemo(() => !!(matchRoot || matchNewLoan), [
-    matchRoot,
-    matchNewLoan,
-  ])
+  const matchHomeItem = useMemo(
+    () => !!(matchRoot || matchNewLoan),
+    [matchRoot, matchNewLoan],
+  )
 
   return (
     <div className={clsx('bottomBar__root', styles.root)}>

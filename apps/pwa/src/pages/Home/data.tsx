@@ -1,9 +1,9 @@
 import { Fragment } from 'react'
 import { ICardData } from './types'
-import IconNewLoan from '@shared/assets/newLoan-2.png'
-import IconPortability from '@shared/assets/portability-2.png'
-import IconRefinancing from '@shared/assets/refinancing-2.png'
-import IconCreditCard from '@shared/assets/creditCard-2.png'
+import IconNewLoan from '@tudo/assets/newLoan-2.png'
+import IconPortability from '@tudo/assets/portability-2.png'
+import IconRefinancing from '@tudo/assets/refinancing-2.png'
+import IconCreditCard from '@tudo/assets/creditCard-2.png'
 import { History } from 'history'
 
 interface IGetCardsDataParams {

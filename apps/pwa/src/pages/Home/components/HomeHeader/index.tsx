@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react'
 import styles from './homeHeader.module.scss'
-import Logo from '@shared/assets/tudo-logo.png'
+import Logo from '@tudo/assets/tudo-logo.png'
 import { AiOutlineBell } from 'react-icons/ai'
 import { IoChevronDownOutline } from 'react-icons/io5'
 import clsx from 'clsx'

@@ -3,6 +3,9 @@ import useHeight from '@/utils/useHeight'
 import Router from '@/router'
 import { BottomBar } from './components/BottomBar'
 import { AppBar } from './components/AppBar'
+import { teste } from '@tudo/services'
+
+console.log(teste)
 
 const App: FunctionComponent = () => {
   // used to work around 100vh problems

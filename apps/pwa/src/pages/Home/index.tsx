@@ -13,10 +13,10 @@ import { useQuery } from 'react-query'
 
 export const Home: FunctionComponent = () => {
   const history = useHistory()
-  const {
-    data: currentMargins,
-    isLoading: loadingMargins,
-  } = useQuery('currentMargins', () => MarginService.getCurrentMargins())
+  const { data: currentMargins, isLoading: loadingMargins } = useQuery(
+    'currentMargins',
+    () => MarginService.getCurrentMargins(),
+  )
 
   const cardsData = useMemo(() => getCardsData({ history }), [history])
 

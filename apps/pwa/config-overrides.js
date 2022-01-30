@@ -5,6 +5,5 @@ const { override } = require('customize-cra')
 module.exports = override(
   alias({
     ...configPaths('tsconfig.base.json'),
-    react: path.resolve('./node_modules/react'),
   }),
 )
