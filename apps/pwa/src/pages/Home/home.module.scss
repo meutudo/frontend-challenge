@@ -1,10 +1,5 @@
 .cardsContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
-  flex-wrap: wrap;
-
-  > * {
-    flex: 1;
-    max-width: calc(50% - 8px);
-  }
 }
