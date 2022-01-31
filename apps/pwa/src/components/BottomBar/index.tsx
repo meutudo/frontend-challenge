@@ -22,6 +22,10 @@ export const BottomBar: FunctionComponent = () => {
     [matchRoot, matchNewLoan],
   )
 
+  const matchContracts = useRouteMatch('/contracts')
+  const matchHelp = useRouteMatch('/help')
+  const matchAccounts = useRouteMatch('/accounts')
+
   return (
     <div className={clsx('bottomBar__root', styles.root)}>
       <div className={styles.container}>
@@ -34,16 +38,19 @@ export const BottomBar: FunctionComponent = () => {
         <BarItem
           icon={IoDocumentsOutline}
           label="Contratos"
+          active={!!matchContracts}
           onClick={() => history.push('/contracts')}
         />
         <BarItem
           icon={MdHelpOutline}
           label="Dúvidas"
+          active={!!matchHelp}
           onClick={() => history.push('/help')}
         />
         <BarItem
           icon={AiOutlineUser}
           label="Contas"
+          active={!!matchAccounts}
           onClick={() => history.push('/accounts')}
         />
       </div>

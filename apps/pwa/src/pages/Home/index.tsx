@@ -4,7 +4,7 @@ import { Card } from './components/Card'
 import { ContentTitle } from '@/components/ContentTitle'
 
 import styles from './home.module.scss'
-import { MarginService } from '@/services/Margin'
+import { MarginService } from '@tudo/services/Margin'
 import { GrowSpinner } from '@/components/GrowSpinner'
 import { numberToCurrency } from '@/utils/numberToCurrency'
 import { getCardsData } from './data'

@@ -1,5 +1,5 @@
 import { IGetCurrentMarginsData } from './types'
-import api from '@/services/api'
+import api from '@tudo/axios'
 
 export class MarginService {
   public static async getCurrentMargins(): Promise<IGetCurrentMarginsData> {

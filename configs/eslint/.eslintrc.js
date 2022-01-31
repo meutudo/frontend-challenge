@@ -48,18 +48,11 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    '@typescript-eslint/no-var-requires': 'off',
   },
   settings: {
     react: {
       version: 'detect',
     },
   },
-  overrides: [
-    {
-      files: ['./*.js'],
-      rules: {
-        '@typescript-eslint/no-var-requires': 'off',
-      },
-    },
-  ],
 }

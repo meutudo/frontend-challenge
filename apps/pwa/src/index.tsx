@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
 import './styles'
 
-import { queryClient } from '@/services/Query'
+import { queryClient } from '@tudo/services/Query'
 import { QueryClientProvider } from 'react-query'
 import { AppProvider } from './contexts/App'
 import { AppBarProvider } from './contexts/AppBar'

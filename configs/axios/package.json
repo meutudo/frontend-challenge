@@ -1,0 +1,6 @@
+{
+  "name": "@tudo/axios",
+  "main": "./index.ts",
+  "private": true,
+  "packageManager": "yarn@3.1.1"
+}
