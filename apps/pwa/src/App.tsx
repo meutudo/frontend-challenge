@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react'
-import useHeight from '@/utils/useHeight'
+import useHeight from '@tudo/utils/useHeight'
 import Router from '@/router'
 import { BottomBar } from './components/BottomBar'
 import { AppBar } from './components/AppBar'

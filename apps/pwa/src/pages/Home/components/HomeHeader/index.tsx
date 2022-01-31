@@ -4,7 +4,7 @@ import Logo from '@tudo/assets/tudo-logo.png'
 import { AiOutlineBell } from 'react-icons/ai'
 import { IoChevronDownOutline } from 'react-icons/io5'
 import clsx from 'clsx'
-import { numberToCurrency } from '@/utils/numberToCurrency'
+import { numberToCurrency } from '@tudo/utils/numberToCurrency'
 
 export interface HomeHeaderProps {
   balance?: number
