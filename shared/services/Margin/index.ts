@@ -6,5 +6,3 @@ export class MarginService {
     return api.get('/margins').then(response => response.data)
   }
 }
-
-console.log('teste git')
