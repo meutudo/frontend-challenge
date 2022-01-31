@@ -1,0 +1,6 @@
+{
+  "name": "@tudo/services",
+  "private": true,
+  "main": "index.ts",
+  "packageManager": "yarn@3.1.1"
+}
