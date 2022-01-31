@@ -6,3 +6,23 @@
   grid-gap: 16px;
   gap: 16px;
 }
+
+.bottomContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.otherValueBox {
+  display: flex;
+  align-items: center;
+}
+
+.otherValueLabel {
+  margin-right: 8px;
+}
+
+.inputOverride {
+  text-align: center;
+}
