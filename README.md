@@ -29,10 +29,10 @@ Imagine que você é responsável por iniciar o desenvolvimento do nosso PWA e M
 
 Para criar as telas vocês deve seguir o layout proposto aqui: https://xd.adobe.com/view/1f691c23-6efa-4989-b405-9bbcfd1e62ab-4a3a/
 Para preencher os dados da tela você deve utilizar os seguintes endpoints (mockados):
-- Home (1): https://demo7273790.mockable.io/margins
-- Values (2): https://demo7273790.mockable.io/suggestedvalues
-- Periods (3): https://demo7273790.mockable.io/suggestedperiods
-- Simulation (4): https://demo7273790.mockable.io/simulation
+- Home (1): https://5fpaprjjbl.execute-api.us-east-1.amazonaws.com/test
+- Values (2): https://5fpaprjjbl.execute-api.us-east-1.amazonaws.com/test/values
+- Periods (3): https://5fpaprjjbl.execute-api.us-east-1.amazonaws.com/test/installments
+- Simulation (4): https://5fpaprjjbl.execute-api.us-east-1.amazonaws.com/test/simulation
 
 As imagens a serem utilizadas, estão nesse repositório.
 
