@@ -39,8 +39,7 @@ As imagens a serem utilizadas, estão nesse repositório.
 Ao fazer a requisição para os endpoints, você verá que o resultado é auto explicativo, mas caso tenha alguma dúvida, pode entrar em contato.
 
 ## Como enviar
-Você deve fazer um fork desse repositório, e quando terminar, fazer um pull request de volta.
-Pode nos enviar o link do seu fork. ;)
+Só nos mandar um link do github do seu teste.
 
 Lembre de fornecer instruções claras de como rodar seu projeto, desde instalação de dependências, até o build.
 
