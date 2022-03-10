@@ -1,4 +1,4 @@
-# Senior frontend challenge
+# Frontend challenge
 
 O objetivo deste teste é reproduzir de maneira mais simples o nosso workflow de simulação.
 
