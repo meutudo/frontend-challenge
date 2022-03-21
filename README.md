@@ -1,54 +1,71 @@
-# Senior frontend challenge
+# The Project
 
-O objetivo deste teste é reproduzir de maneira mais simples o nosso workflow de simulação.
+## What is inside?
 
-# Nossa stack FrontEnd
-Por aqui utilizamos, em resumo, as seguintes tecnologias:
-- React
-- React Native
-- Redux
-- Immutable
-- RxJs
+This project uses lot of stuff as:
 
+-   [monorepo yarn workspaces](https://classic.yarnpkg.com/blog/2017/08/02/introducing-workspaces/)
+-   [TypeScript](https://www.typescriptlang.org/)
+-   [React with CRA](https://reactjs.org/)
+-   [Styled Components](https://styled-components.com/)
+-   [Jest](https://jestjs.io/)
+-   [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
+-   [Storybook](https://storybook.js.org/)
+-   [Eslint](https://eslint.org/)
+-   [Prettier](https://prettier.io/)
+-   [PlopJS](https://plopjs.com/)
+-   [react-icons](https://react-icons.github.io/)
+-   [react-toastify](https://www.npmjs.com/package/react-toastify)
+-   [axios](https://axios-http.com/)
+-   [miragejs](https://miragejs.com/)
 
-# Desafio
-## Criar um PWA da nossa jornada de simulação
+## Architecture
 
-Imagine que você é responsável por iniciar o desenvolvimento do nosso PWA e Mobile app. Imagine também que o projeto é escalável, e terá vários outros workflows e telas no futuro. Para isso, alguns requisitos devem ser atendidos.
+```
+├── packages
+|   |-- core                    (Global Library)
+|       |-- assets              (Files imgs/svgs/etc..)
+|       |-- context             (Context React/React Native)
+|       |-- helpers             (Short Code helper)
+|       |-- hooks               (Simples hooks)
+|       |-- services            (Api/Request/Response services)
+|       |-- utils               (support functions)
+|       |-- jest.config.js      (config tests)
+|       |-- tsconfig            (config typescript)
+|   |-- server                  (Development server MirageJS)
+|   |-- web                     (Web Page Site Browser)
+|       |-- .storybook          (configs storybook)
+|       |-- genarators          (config/template plopjs)
+|       |-- public              (public web)
+|       |-- src                 (source files)
+|           |-- @types          (typing global set)
+|           |-- components      (react components commons)
+|           |-- pages           (router page)
+|           |-- templates       (templates global)
+|           |-- App.tsx         (Initial Component with Providers configs)
+|           |-- index.tsx       (initial call with config local server)
+|           |-- Router.tsx      (Routers configs)
+|           |-- jest.config.js  (config tests)
+|           |-- tsconfig        (config typescript)
+```
 
-- [ ] A aplicação contém código comum entre o PWA (React) e o Mobile app (React Native), desse modo, tudo o que for comum aos dois projetos deve ser compartilhado (reusável) - Depende de você identificar o que e como será compartilhado.
-- [ ] A aplicação deve conter um Header (AppBar) que se adeque as mudanças de rotas, podendo alterar título, exibir ou não exibir, ter actions (icon buttons ou text actions), etc. Em resumo, deve ser configurável.
-- [ ] Code-splitting deve ser aplicado para redução do bundle inicial.
-- [ ] Apesar dos endpoints serem mockados, é necessário enviar o valor e período escolhido para as próximas tela.
-- [ ] SOLID principles
-- [ ] Deve ter gerenciamento de estado
-- [ ] Deve ter um linter configurado
-- [ ] Fique a vontade para usar Classes, Hooks, etc.
-- [ ] Plus: desenvolver também a aplicação em React Native **(não use EXPO)** - Não precisa ser necessariamente completa, mas é plus porque analisaremos o reuso do código em comum.
-- [ ] Plus: testes
+## Getting Started
 
-Para criar as telas vocês deve seguir o layout proposto aqui: https://xd.adobe.com/view/1f691c23-6efa-4989-b405-9bbcfd1e62ab-4a3a/
-Para preencher os dados da tela você deve utilizar os seguintes endpoints (mockados):
-- Home (1): https://demo7273790.mockable.io/margins
-- Values (2): https://demo7273790.mockable.io/suggestedvalues
-- Periods (3): https://demo7273790.mockable.io/suggestedperiods
-- Simulation (4): https://demo7273790.mockable.io/simulation
+First, run the development server:
 
-As imagens a serem utilizadas, estão nesse repositório.
+```bash
+yarn dev
+```
 
-Ao fazer a requisição para os endpoints, você verá que o resultado é auto explicativo, mas caso tenha alguma dúvida, pode entrar em contato.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Como enviar
-Você deve fazer um fork desse repositório, e quando terminar, fazer um pull request de volta.
-Pode nos enviar o link do seu fork. ;)
+## Commands
 
-Lembre de fornecer instruções claras de como rodar seu projeto, desde instalação de dependências, até o build.
-
-# Critério de avaliação
-
-Basicamente, só queremos ver se você consegue escrever um código limpo, reutilizável e se tem conhecimento da tecnologia adotada (criatividade e proatividade são um plus).
-
-Caso você passe no teste prático, faremos uma entrevista após o teste para conversar sobre como foi feito.
-
-Bom trabalho!
-
+-   `web`: runs your application on `localhost:3000`
+-   `test`: runs jest to test all components packages
+-   `test:watch`: runs jest to test all components packages watch
+-   `test:web`: runs jest in packages/web
+-   `test:core`: runs jest in packages/core
+-   `coverage`: runs jest to coverage all packages
+-   `storybook:web`: runs storybook on `localhost:6006`
+-   `generate:web`: generate template components ex: `yarn generate [type component/templates] [name component]`

@@ -1,0 +1,9 @@
+{
+    "name": "@meutudo/server",
+    "version": "1.0.0",
+    "main": "index.ts",
+    "license": "MIT",
+    "devDependencies": {
+        "miragejs": "^0.1.43"
+    }
+}

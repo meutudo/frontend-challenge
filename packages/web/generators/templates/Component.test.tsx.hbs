@@ -1,0 +1,12 @@
+import React from 'react'
+import { render } from '@meutudo/core/utils/test-utils'
+
+import { {{pascalCase name}} } from '.'
+
+describe('<{{pascalCase name}} />', () => {
+    it('should render component', () => {
+        const { container } = render(<{{pascalCase name}} />)
+
+        expect(container).toBeInTheDocument()
+    })
+})

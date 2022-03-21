@@ -1,0 +1,30 @@
+{
+    "name": "@meutudo/core",
+    "version": "1.0.0",
+    "main": "src",
+    "module": "src/index.js",
+    "license": "MIT",
+    "scripts": {
+        "test": "jest"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.14.0",
+        "@typescript-eslint/parser": "^5.14.0",
+        "craco": "^0.0.3",
+        "eslint": "^8.10.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-import-resolver-typescript": "^2.5.0",
+        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-promise": "^6.0.0",
+        "eslint-plugin-react": "^7.29.3",
+        "eslint-plugin-standard": "^5.0.0",
+        "prettier": "^2.5.1"
+    },
+    "dependencies": {
+        "axios": "^0.26.1",
+        "uuidv4": "^6.2.12"
+    }
+}
