@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextField /> should renders with error 1`] = `
+<div
+  class="sc-eCImPb bumDRc"
+>
+  <div
+    class="sc-bdvvtL kMbbit"
+  >
+    <input
+      class="sc-dkPtRN cYGpfs"
+      value=""
+    />
+  </div>
+  <div
+    class="sc-hKwDye jKbvXI"
+  >
+    Error message
+  </div>
+</div>
+`;

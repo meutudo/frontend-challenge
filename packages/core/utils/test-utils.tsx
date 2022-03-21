@@ -13,7 +13,9 @@ import 'react-toastify/dist/ReactToastify.css'
 import {
     AuthProvider,
     OpportunitiesProvider,
-    SuggestionValuesProvider
+    SuggestionValuesProvider,
+    SimulationProvider,
+    SuggestionInstallmentsProvider
 } from '../contexts'
 
 type CustomRenderProps = Omit<RenderOptions, 'queries'>
@@ -27,8 +29,14 @@ const customRender = (
             <AuthProvider>
                 <OpportunitiesProvider>
                     <SuggestionValuesProvider>
-                        <ThemeProvider theme={theme}>{ui}</ThemeProvider>
-                        <ToastContainer />
+                        <SuggestionInstallmentsProvider>
+                            <SimulationProvider>
+                                <ThemeProvider theme={theme}>
+                                    {ui}
+                                </ThemeProvider>
+                                <ToastContainer />
+                            </SimulationProvider>
+                        </SuggestionInstallmentsProvider>
                     </SuggestionValuesProvider>
                 </OpportunitiesProvider>
             </AuthProvider>

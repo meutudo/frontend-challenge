@@ -1,4 +1,4 @@
-import React, { useState, useEffect, InputHTMLAttributes } from 'react'
+import React, { useState, InputHTMLAttributes } from 'react'
 
 import * as S from './TextField.styles'
 
@@ -30,10 +30,6 @@ export const TextField = ({
 
         !!onInputChange && onInputChange(currentName, currentValue)
     }
-
-    useEffect(() => {
-        setCurrentValue(props.value)
-    }, [props.value])
 
     return (
         <S.Wrapper disabled={disabled} error={!!error}>
