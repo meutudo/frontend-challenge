@@ -16,7 +16,7 @@ Por aqui utilizamos, em resumo, as seguintes tecnologias:
 
 Imagine que você é responsável por iniciar o desenvolvimento do nosso PWA e Mobile app. Imagine também que o projeto é escalável, e terá vários outros workflows e telas no futuro. Para isso, alguns requisitos devem ser atendidos.
 
-- [ ] A aplicação contém código comum entre o PWA (React) e o Mobile app (React Native), desse modo, tudo o que for comum aos dois projetos deve ser compartilhado (reusável) - Depende de você identificar o que e como será compartilhado.
+- [ ] A aplicação contém código comum entre o PWA (React) e o Mobile app (React Native), desse modo, tudo o que for comum aos dois projetos deve ser compartilhado (reusável) - Depende de você identificar o que e como será compartilhado. - <b>(esse passo só é requerido para a vaga de Senior)</b>
 - [ ] A aplicação deve conter um Header (AppBar) que se adeque as mudanças de rotas, podendo alterar título, exibir ou não exibir, ter actions (icon buttons ou text actions), etc. Em resumo, deve ser configurável.
 - [ ] Code-splitting deve ser aplicado para redução do bundle inicial.
 - [ ] Apesar dos endpoints serem mockados, é necessário enviar o valor e período escolhido para as próximas tela.
